@@ -1,6 +1,6 @@
 SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRET
 DEBUG=True
-ALLOWED_HOSTS=127.0.0.1, .localhost, 138.197.70.79
+ALLOWED_HOSTS=127.0.0.1, .localhost, 138.197.66.248
 
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 EMAIL_HOST=localhost
