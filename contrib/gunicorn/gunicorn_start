@@ -1,6 +1,7 @@
 #!/bin/bash
 
 NAME="quintal_varjota_app"                                  # Name of the application
+PROJECTROOT=/webapps/quintal_varjota_django                 # The root path of project
 DJANGODIR=/webapps/quintal_varjota_django/quintal_varjota   # Django project directory
 SOCKFILE=/webapps/quintal_varjota_django/run/gunicorn.sock  # we will communicte using this unix socket
 USER=quintal_varjota                                        # the user to run as
@@ -12,8 +13,10 @@ DJANGO_WSGI_MODULE=quintal_varjota.wsgi                     # WSGI module name
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
+cd $PROJECTROOT
+source ./bin/activate
+
 cd $DJANGODIR
-source ../bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 
@@ -23,7 +26,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+cd $PROJECTROOT && exec bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
