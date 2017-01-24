@@ -9,7 +9,7 @@ upstream quintal_varjota_app_server {
 server {
 
     listen   8003;
-    server_name 138.197.70.79;
+    server_name 138.197.66.248;
 
     client_max_body_size 4G;
 
