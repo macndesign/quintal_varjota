@@ -1,18 +1,22 @@
+# Initial server setup (Ubuntu 16-04)
+
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
+
+```console
+adduser mario
+usermod -aG sudo mario
+
+```
+
 # Deploy
 
 ```console
 # Python
 sudo apt-get update
-sudo apt-get install python-dev python3-dev build-essential python-pip python3-pip python-virtualenv libbz2-dev libssl-dev libreadline-dev libsqlite3-dev libffi-dev libpq-dev libpng-dev libfreetype6-dev libtiff5-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk postgresql postgresql-contrib gunicorn gunicorn3 python-gunicorn python3-gunicorn supervisor nginx
+sudo apt-get install python-dev python3-dev build-essential python-pip python3-pip python-virtualenv python3-venv libbz2-dev libssl-dev libreadline-dev libsqlite3-dev libffi-dev libpq-dev libpng-dev libfreetype6-dev libtiff5-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk postgresql postgresql-contrib gunicorn gunicorn3 python-gunicorn python3-gunicorn supervisor nginx
 
-# PyEnv
-curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
-pyenv update
-pyenv install 3.6.0
-
-pyenv global 3.6.0
 cd ./workspace/
-python -m venv quintal_varjota_django
+python3 -m venv quintal_varjota_django
 cd ./quintal_varjota_django/
 mkdir logs
 source ./bin/activate
