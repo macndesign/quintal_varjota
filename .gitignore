@@ -92,6 +92,6 @@ ENV/
 
 .idea/
 *.sqlite3
-static_files/
-media_files/
+static/
+media/
 node_modules
