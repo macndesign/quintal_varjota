@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SubNave from './SubNav/SubNav';
+import 'font-awesome/css/font-awesome.css';
+import './css/main.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <header className="Site-header">
+        <SubNave/>
+        <div className="Header" role="banner">
+          <div className="Header-titles">
+            <h1 className="Header-title"><a href="#">Quintal <i>da</i> Varjota</a></h1>
+            <h2 className="Header-subTitle">em construção</h2>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </header>
     );
   }
 }

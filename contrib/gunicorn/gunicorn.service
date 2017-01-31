@@ -1,5 +1,29 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
 [Service]
 User=quintal_varjota
 Group=www-data
 WorkingDirectory=/home/quintal_varjota/quintal_varjota
 ExecStart=/home/quintal_varjota/quintal_varjota/venv/bin/gunicorn --workers 3 --bind unix:/home/quintal_varjota/quintal_varjota/quintal_varjota.sock quintal_varjota.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=mario
+Group=www-data
+WorkingDirectory=/home/mario/quintal_varjota
+ExecStart=/home/mario/quintal_varjota/venv/bin/gunicorn --workers 3 --bind unix:/home/mario/quintal_varjota/quintal_varjota.sock quintal_varjota.wsgi:application
+
+#Para Voltar ao que era basta adicionar esse service
+#/etc/systemd/system/gunicorn.service
+
+# Matar processo com kill vendo o PID em
+# systemctl status gunicorn.service
+# E dar um reload nos daemons
+# sudo systemctl daemon-reload
+# Talvez
+# sudo systemctl start gunicorn
+# sudo systemctl enable gunicorn
