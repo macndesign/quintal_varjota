@@ -1,0 +1,38 @@
+.links {
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  background-image: url('../images/intro1.jpg');
+  background-color: #455A64;
+  background-size: cover;
+}
+
+.links > .HolyGrail-body > .text {
+  font-size: 1em;
+  width: 100vw;
+  text-align: center;
+}
+
+.links > .HolyGrail-body > .text > h1 {
+  margin-bottom: .5em;
+  font-weight: bold;
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+.links > .HolyGrail-body > .text > p {
+  margin-top: .5em;
+  font-size: 1.2em;
+}
+
+.links > .HolyGrail-body > .text > p > a {
+  color: #5d9cf8;
+  border-bottom: 2px solid rgba(192, 192, 192, 0);
+  text-decoration: none;
+  transition: border 500ms ease;
+  display: inline-block;
+}
+
+.links > .HolyGrail-body > .text > p > a:hover {
+  border-bottom: 2px solid rgba(78, 122, 199, 1);
+}

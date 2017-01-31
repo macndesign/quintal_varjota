@@ -1,0 +1,15 @@
+.footer {
+  background: #3F3F40;
+  border-top: solid 2px #7FB2F0;
+  padding: 2em 1em;
+}
+
+.footer img.logo-sm {
+  height: 60px;
+}
+
+.footer p {
+  color: #8D8E8F;
+  font-size: .7em;
+  line-height: 2em;
+}

@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import 'normalize.css';
-import 'suitcss-utils-display';
-import 'suitcss-utils-text';
+import App from './App/App';
+import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <App/>,
   document.getElementById('root')
 );

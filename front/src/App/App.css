@@ -1,0 +1,63 @@
+/*
+Blue:
+#16193B
+#35478C
+#4E7AC7
+#7FB2F0
+#ADD5F7
+
+Grey:
+#3F3F40
+#727273
+#8D8E8F
+#C5C6C7
+#FCFDFF
+*/
+
+.HolyGrail,
+.HolyGrail-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.HolyGrail-ads {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, .6);
+}
+
+/* desktop */
+@media (min-width: 768px) {
+  .HolyGrail-body {
+    flex-direction: row;
+    flex: 1;
+  }
+  .HolyGrail-content {
+    flex: 1;
+    margin-right: 1em;
+  }
+  .HolyGrail-ads {
+    flex: .8;
+    height: 80vmin;
+    margin-top: 0;
+  }
+}
+
+
+/* Generic Pages */
+
+.page > .HolyGrail {
+  margin: 0 1em 0 1em;
+}
+
+.page > .HolyGrail > h1 {
+  margin-bottom: .5em;
+}
+
+.HolyGrail-body > .text > h1, .HolyGrail > h1 {
+  color: #e5e5e5;
+}
+
+.HolyGrail-body > .text > p, .HolyGrail-content > p {
+  color: #f5f5f5;
+}

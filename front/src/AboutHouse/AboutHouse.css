@@ -1,0 +1,36 @@
+.about-house {
+  /*background: linear-gradient(rgb(75, 106, 180), rgba(75, 106, 180, 0.7));*/
+  background-image: url('../images/intro5.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  padding-bottom: 3em;
+}
+
+.about-house > .HolyGrail {
+  padding: 0 1em;
+}
+
+.about-house > .HolyGrail > h1 {
+  padding: 70px 0 15px;
+  text-align: center;
+  color: #754F44;
+}
+
+.about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content {
+  color: #f5f5f5;
+}
+
+/* desktop */
+@media (min-width: 768px) {
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content {
+    flex: 1;
+    height: 80vmin;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-ads {
+    flex: 1;
+    height: 80vmin;
+  }
+}
