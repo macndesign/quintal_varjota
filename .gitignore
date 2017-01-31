@@ -92,6 +92,8 @@ ENV/
 
 .idea/
 *.sqlite3
-static/
-media/
 node_modules
+/static/
+/media/
+
+**/.DS_Store
