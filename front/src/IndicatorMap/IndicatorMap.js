@@ -6,14 +6,26 @@ import './IndicatorMap.css';
 import 'leaflet/dist/leaflet.css';
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
 
+// Create your own class, extending from the Marker class.
+class ExtendedMarker extends Marker {
+	// "Hijack" the component lifecycle.
+  componentDidMount() {
+  	// Call the Marker class componentDidMount (to make sure everything behaves as normal)
+  	super.componentDidMount();
+
+    // Access the marker element and open the popup.
+    this.leafletElement.openPopup();
+  }
+}
+
 class IndicatorMap extends Component {
   constructor(props) {
     super(props);
     this.newOptions = emptyMap;
     this.state = {
-      lat: -3.974040,
-      lng: -63.243196,
-      zoom: 7
+      lat: -3.727492,
+      lng: -38.495038,
+      zoom: 17
     };
   }
 
@@ -29,16 +41,22 @@ class IndicatorMap extends Component {
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
-                <Marker position={position}>
+                <ExtendedMarker position={position}>
                   <Popup>
-                    <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+                    <span>
+                      Av. Antônio Justa, 2525 - Meireles<br/>
+                      Fortaleza - CE<br/> 60165-090<br/>
+                    <a href="https://maps.google.com/maps?ll=-3.727492,-38.495038&z=17&t=m&hl=pt-BR&gl=BR&mapclient=embed&q=Av.%20Ant%C3%B4nio%20Justa%2C%202525%20-%20Meireles%20Fortaleza%20-%20CE%2060165-090" target="_blank">
+                      Visualizar mapa ampliado
+                    </a>
+                    </span>
                   </Popup>
-                </Marker>
+                </ExtendedMarker>
               </Map>
             </main>
             <aside className="HolyGrail-ads">
               <div className="controls">
-                Test
+                &nbsp;
               </div>
             </aside>
           </div>

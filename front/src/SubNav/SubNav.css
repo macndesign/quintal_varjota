@@ -12,8 +12,8 @@
    */
   justify-content: space-between;
 
-  padding: 10px;
-  background-color: #56727C;
+  padding: 5px 1em;
+  background-color: rgba(75, 54, 33, 0.7);
 }
 
 .siteHeader__section {
@@ -32,7 +32,7 @@
 }
 
 .siteHeader__item {
-  padding: 5px 15px;
+  padding: 5px;
   font-size: 12px;
 }
 
@@ -50,9 +50,28 @@
   font-size: 20px;
   line-height: 0;
   color: white;
+  text-decoration: none;
+}
+
+.siteHeaderLogo .label {
+  font-size: 12px;
+  margin-left: 0.5em;
+  text-decoration: none;
+  color: #fff;
 }
 
 .siteHeaderButton {
   cursor: pointer;
   color: #D9E9EF;
+}
+
+@media (max-width: 480px) {
+  .social-network-top {
+    display: none;
+  }
+}
+
+.social-network-top .siteHeader__item {
+  min-width: 18px;
+  text-align: center;
 }

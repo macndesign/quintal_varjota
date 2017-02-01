@@ -6,7 +6,6 @@
   display: block;
   width: 100%;
   overflow-x: hidden;
-  padding-bottom: 3em;
 }
 
 .about-house > .HolyGrail {
@@ -14,7 +13,7 @@
 }
 
 .about-house > .HolyGrail > h1 {
-  padding: 70px 0 15px;
+  padding: 115px 0 15px;
   text-align: center;
   color: #754F44;
 }

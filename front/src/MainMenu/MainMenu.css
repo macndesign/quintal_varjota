@@ -9,7 +9,7 @@ header {
 .menu {
   list-style: none;
   display: flex;
-  height: 140px;
+  height: 105px;
   align-items: flex-end;
   transition: height 0.3s;
 }
@@ -30,7 +30,7 @@ header {
 
 .menu li.logo img#main-logo {
   margin-right: 1.5em;
-  margin-left: 1em;
+  margin-left: 0.6em;
   transition: all 0.3s;
 }
 
@@ -88,6 +88,7 @@ header {
 .menu li.hamb {
   display: none;
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .menu li.hamb .hamb-wrapper {
@@ -100,7 +101,7 @@ header {
 .menu li.hamb .hamb-wrapper .hamb-item {
   height: 5px;
   border-radius: 2px;
-  background-color: #5CAB7D;
+  background-color: #44633F;
   margin-bottom: 5px;
 }
 

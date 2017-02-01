@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SubNav from '../SubNav/SubNav';
 import MainMenu, {HambMenu} from '../MainMenu/MainMenu';
 import Intro from '../Intro/Intro';
 import IndicatorMap from '../IndicatorMap/IndicatorMap';
@@ -65,6 +66,7 @@ class App extends Component {
     return (
       <div className="HolyGrail">
         <header style={{backgroundColor: 'rgba(255, 255, 255, 0.6)'}}>
+          <SubNav/>
           <MainMenu handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
