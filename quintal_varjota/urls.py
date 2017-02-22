@@ -14,13 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from core import views
+from rest_framework import routers
 
+router = routers.DefaultRouter()
+router.register(r'main-slider', views.MainSliderViewSet)
 
 urlpatterns = [
+    # Rest
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    # Site
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

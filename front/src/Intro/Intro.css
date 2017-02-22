@@ -6,9 +6,10 @@
 
 .intro > .HolyGrail-body > .text {
   font-size: 1em;
-  width: 100vw;
+  width: 88vw;
   height: 73vh;
   text-align: center;
+  padding: 0 6vw;
 }
 
 .intro > .HolyGrail-body > .text > h1 {
@@ -21,4 +22,20 @@
 .intro > .HolyGrail-body > .text > p {
   margin-top: .5em;
   font-size: 1.2em;
+}
+
+/* Slider styles */
+.slick-slider {
+  height: 68vh;
+}
+
+.slick-list {
+  height: 68vh;
+}
+
+.slick-track > div {
+  height: 68vh;
+  background: no-repeat center center fixed;
+  background-size: cover;
+  border-radius: 4px;
 }

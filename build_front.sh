@@ -3,7 +3,6 @@ if [ -d ./core/static/ ]; then rm -R ./core/static/; fi
 if [ -d ./core/templates/ ]; then rm -R ./core/templates/; fi
 
 cd front/
-echo "export const mocked = false;" > ./src/env.js
 if [ -d ./build/ ]; then rm -R ./build/; fi
 npm run build
 

@@ -70,7 +70,7 @@ class App extends Component {
           <MainMenu handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
-        <Intro/>
+        <Intro api={this.props.api}/>
         <AboutHouse/>
         <Links/>
         <Team/>

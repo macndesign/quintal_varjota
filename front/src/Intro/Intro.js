@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
+import axios from 'axios';
 import './Intro.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import img1 from '../images/intro6.jpg';
 
 const backgroundStyle = {
@@ -8,15 +12,47 @@ const backgroundStyle = {
   backgroundSize: 'cover'
 };
 
-const Intro = () => (
-  <div id="intro" className="intro" style={backgroundStyle}>
-    <div className="HolyGrail-body">
-      <div className="text">
-        <h1>Apresentação</h1>
-        <p>Algo sobre o restaurante.</p>
+const settings = {
+  dots: true,
+  infinite: true,
+  // speed: 500,
+  fade: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 4000,
+  pauseOnHover: true
+};
+
+class Intro extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataMainSlider: null
+    }
+  }
+
+  componentDidMount() {
+    axios.get(this.props.api['main-slider']).then(res => {
+      this.setState({dataMainSlider: res.data});
+    });
+  }
+
+  render() {
+    return this.state.dataMainSlider && (
+      <div id="intro" className="intro" style={backgroundStyle}>
+        <div className="HolyGrail-body">
+          <div className="text">
+            <Slider {...settings}>
+              {this.state.dataMainSlider.results.map(item => (
+                <div key={item.id} style={{backgroundImage: `url(${item.image})`}}></div>
+              ))}
+            </Slider>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    )
+  }
+};
 
 export default Intro;

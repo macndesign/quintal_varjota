@@ -24,10 +24,11 @@
 @media (min-width: 768px) {
   .indicator-map > .HolyGrail > .HolyGrail-body > .HolyGrail-content {
     flex: 1;
+    height: 87vmin;
   }
   .indicator-map > .HolyGrail > .HolyGrail-body > .HolyGrail-ads {
     flex: 0.4;
-    height: 80vmin;
+    height: 87vmin;
   }
 }
 
