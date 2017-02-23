@@ -34,7 +34,7 @@
 }
 
 .slick-track > div {
-  height: 68vh;
+  min-height: 68vh;
   background: no-repeat center center fixed;
   background-size: cover;
   border-radius: 4px;

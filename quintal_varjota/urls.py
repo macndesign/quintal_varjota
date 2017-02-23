@@ -22,6 +22,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'main-slider', views.MainSliderViewSet)
+router.register(r'contact-info', views.ContactInfoViewSet)
 
 urlpatterns = [
     # Rest
