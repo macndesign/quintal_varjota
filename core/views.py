@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from .models import MainSlider, ContactInfo
 from .serializers import MainSliderSerializer, ContactInfoSerializer
+from .filters import ContactInfoFilterSet
 
 
 def home(request):
@@ -16,3 +17,5 @@ class MainSliderViewSet(viewsets.ModelViewSet):
 class ContactInfoViewSet(viewsets.ModelViewSet):
     queryset = ContactInfo.actives.all()
     serializer_class = ContactInfoSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = ContactInfoFilterSet

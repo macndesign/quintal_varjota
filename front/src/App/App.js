@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import SubNav from '../SubNav/SubNav';
 import MainMenu, {HambMenu} from '../MainMenu/MainMenu';
 import Intro from '../Intro/Intro';
@@ -15,7 +16,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showHambMenu: false
+      showHambMenu: false,
+      // Global data
+      dataContactInfo: null
     }
   }
 
@@ -56,6 +59,10 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.changeMenuItemClassNameOnScroll);
+    // Get global data
+    axios.get(this.props.api['contact-info'] + '?active=True').then(res => {
+      this.setState({dataContactInfo: res.data});
+    });
   }
 
   componentWillUnmount() {
@@ -66,7 +73,7 @@ class App extends Component {
     return (
       <div className="HolyGrail">
         <header style={{backgroundColor: 'rgba(255, 255, 255, 0.6)'}}>
-          <SubNav/>
+          {this.state.dataContactInfo && <SubNav infos={this.state.dataContactInfo}/>}
           <MainMenu handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
@@ -74,7 +81,7 @@ class App extends Component {
         <AboutHouse/>
         <Links/>
         <Team/>
-        <IndicatorMap/>
+        {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
         <footer>
           <Footer/>
         </footer>

@@ -4,37 +4,33 @@
   display: flex;
 }
 
-.intro > .HolyGrail-body > .text {
-  font-size: 1em;
-  width: 88vw;
-  height: 73vh;
-  text-align: center;
-  padding: 0 6vw;
+.intro .text {
+  width: 100vw;
+  margin-top: 14vh;
+  min-height: 80vh;
 }
 
-.intro > .HolyGrail-body > .text > h1 {
-  margin-bottom: .5em;
-  font-weight: bold;
-  font-size: 2.5em;
-  text-transform: uppercase;
+.intro .slider-wrapper {
+  margin: 0 auto;
+  padding: 25px;
 }
 
-.intro > .HolyGrail-body > .text > p {
-  margin-top: .5em;
-  font-size: 1.2em;
+.intro .slider-wrapper .slider-content {
+  min-height: 65vh;
+  margin-bottom: 25px;
 }
 
-/* Slider styles */
-.slick-slider {
-  height: 68vh;
-}
-
-.slick-list {
-  height: 68vh;
+@media (max-width: 767px) {
+  .intro .slider-wrapper {
+    padding: 25px;
+  }
+  .intro .slider-wrapper .slider-content {
+    min-height: 55vh;
+  }
 }
 
 .slick-track > div {
-  min-height: 68vh;
+  min-height: 72vh;
   background: no-repeat center center fixed;
   background-size: cover;
   border-radius: 4px;

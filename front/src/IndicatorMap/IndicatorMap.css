@@ -17,7 +17,15 @@
 }
 
 .indicator-map > .HolyGrail > .HolyGrail-body > .HolyGrail-ads {
-  background-color: #f5f5f5;
+  background-color: transparent;
+}
+
+.indicator-map > .HolyGrail > .HolyGrail-body > .HolyGrail-ads ul {
+  margin-left: 1em;
+}
+
+.indicator-map > .HolyGrail > .HolyGrail-body > .HolyGrail-ads ul li {
+  margin-bottom: .5em;
 }
 
 /* desktop */

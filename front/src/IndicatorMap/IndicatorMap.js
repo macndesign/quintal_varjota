@@ -23,30 +23,33 @@ class IndicatorMap extends Component {
     super(props);
     this.newOptions = emptyMap;
     this.state = {
-      lat: -3.727492,
-      lng: -38.495038,
+      info: null,
       zoom: 17
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      info: this.props.infos.results[0]
+    });
+  }
+
   render() {
-    const position = [this.state.lat, this.state.lng];
-    return (
+    return this.state.info && (
       <div className="indicator-map">
         <div id="indicator-map" className="HolyGrail">
           <div className="HolyGrail-body">
             <main className="HolyGrail-content" id="map-container">
-              <Map center={position} zoom={this.state.zoom}>
+              <Map center={[this.state.info.map_lat, this.state.info.map_lng]} zoom={this.state.zoom}>
                 <TileLayer
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
-                <ExtendedMarker position={position}>
+              <ExtendedMarker position={[this.state.info.map_lat, this.state.info.map_lng]}>
                   <Popup>
                     <span>
-                      Av. Antônio Justa, 2525 - Meireles<br/>
-                      Fortaleza - CE<br/> 60165-090<br/>
-                    <a href="https://maps.google.com/maps?ll=-3.727492,-38.495038&z=17&t=m&hl=pt-BR&gl=BR&mapclient=embed&q=Av.%20Ant%C3%B4nio%20Justa%2C%202525%20-%20Meireles%20Fortaleza%20-%20CE%2060165-090" target="_blank">
+                    {this.state.info.address}<br/>
+                    <a href={this.state.info.map_url} target="_blank">
                       Visualizar mapa ampliado
                     </a>
                     </span>
@@ -55,8 +58,23 @@ class IndicatorMap extends Component {
               </Map>
             </main>
             <aside className="HolyGrail-ads">
-              <div className="controls">
-                &nbsp;
+              <div className='hours'>
+                <h3>Horário de Funcionamento</h3><br/>
+                <ul>
+                  {this.state.info.operating_hours.length > 0 &&
+                    this.state.info.operating_hours.map((item) => (
+                    <li key={item.id}>
+                      {item.week_day1} a {item.week_day2}<br/>
+                      das {item.hour1} às {item.hour2}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className='cards'>Aceitamos os cartões:<br/>
+                {this.state.info.cards.length > 0 &&
+                  this.state.info.cards.map((item) => (
+                  <span key={item.id}>{item.name}</span>
+                ))}
               </div>
             </aside>
           </div>

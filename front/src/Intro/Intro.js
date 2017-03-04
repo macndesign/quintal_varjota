@@ -42,12 +42,14 @@ class Intro extends Component {
     return this.state.dataMainSlider && (
       <div id="intro" className="intro" style={backgroundStyle}>
         <div className="HolyGrail-body">
-          <div className="text">
-            <Slider {...settings}>
-              {this.state.dataMainSlider.results.map(item => (
-                <div key={item.id} style={{backgroundImage: `url(${item.image})`}}></div>
-              ))}
-            </Slider>
+          <div className='text'>
+            <div className="slider-wrapper">
+              <Slider {...settings}>
+                {this.state.dataMainSlider.results.map(item => (
+                  <div key={item.id} style={{backgroundImage: `url(${item.image})`}}></div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </div>
