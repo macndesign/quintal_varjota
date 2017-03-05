@@ -59,7 +59,7 @@ class IndicatorMap extends Component {
             </main>
             <aside className="HolyGrail-ads">
               <div className='hours'>
-                <h3>Horário de Funcionamento</h3><br/>
+                <h3>Horário de Funcionamento</h3>
                 <ul>
                   {this.state.info.operating_hours.length > 0 &&
                     this.state.info.operating_hours.map((item) => (
@@ -73,9 +73,28 @@ class IndicatorMap extends Component {
               <div className='cards'>Aceitamos os cartões:<br/>
                 {this.state.info.cards.length > 0 &&
                   this.state.info.cards.map((item) => (
-                  <span key={item.id}>{item.name}</span>
+                  <img key={item.id} src={item.image}
+                    alt={item.name} title={item.name}/>
                 ))}
               </div>
+              <div className='address'>
+                <h3>Endereço</h3>
+                <p>{this.state.info.address}</p>
+              </div>
+              <div className='phone-mail'>
+                <p>
+                  <a href={'mailto:' + this.state.info.email}>
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                    <span className="label">{this.state.info.email}</span>
+                  </a>
+                </p>
+                <p>
+                  <a href={'tel:' + this.state.info.phone_reservations}>
+                    <i className="fa fa-phone" aria-hidden="true"></i>
+                    <span className="label">{this.state.info.phone_reservations}</span>
+                  </a>
+                </p>
+              </div><br/>
             </aside>
           </div>
         </div>

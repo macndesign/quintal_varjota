@@ -26,20 +26,20 @@ export const HambMenu = ({handleScrollToMenuItemClick, show}) => {
   );
 };
 
-const MainMenu = ({handleScrollToMenuItemClick, handleHambMenuClick}) => {
+const MainMenu = ({handleScrollToMenuItemClick, handleHambMenuClick, isFooter}) => {
   return (
     <ul id="main-menu" className="menu">
       <li className="logo">
         <img onClick={() => handleScrollToMenuItemClick('intro')}
-          id="main-logo" src={logo} alt="Idesam"/>
+          id="main-logo" src={logo} alt="Idesam" style={{height: isFooter ? 60 : 'inherent'}}/>
       </li>
-      <li className="hamb">
+      {!isFooter && <li className="hamb">
         <div className="hamb-wrapper" onClick={() => handleHambMenuClick()}>
           <div className="hamb-item">&nbsp;</div>
           <div className="hamb-item">&nbsp;</div>
           <div className="hamb-item">&nbsp;</div>
         </div>
-      </li>
+      </li>}
       <li id="homeMenuItem" className="item selected">
         <a onClick={() => handleScrollToMenuItemClick('intro')}>Home</a>
       </li>

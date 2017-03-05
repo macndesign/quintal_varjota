@@ -1,11 +1,7 @@
 .footer {
   background: #e5e5e5 url('../images/bg3.jpg');
   border-top: solid 2px #5CAB7D;
-  padding: 2em 1em;
-}
-
-.footer img.logo-sm {
-  height: 60px;
+  padding: 0 1em 2em;
 }
 
 .footer p {

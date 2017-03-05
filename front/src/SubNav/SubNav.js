@@ -12,7 +12,7 @@ const SubNave = ({infos}) => {
           <i className="fa fa-tripadvisor" aria-hidden="true"></i>
           <span className="label">Avaliação</span>
         </a>
-        <a href="tel:8531093333"
+        <a href={'tel:' + infos.results[0].phone_reservations}
           className="siteHeader__item siteHeaderLogo">
           <i className="fa fa-phone" aria-hidden="true"></i>
           <span className="label">Reservas:	{infos.results[0].phone_reservations}</span>

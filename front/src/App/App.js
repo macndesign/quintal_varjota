@@ -74,7 +74,7 @@ class App extends Component {
       <div className="HolyGrail">
         <header style={{backgroundColor: 'rgba(255, 255, 255, 0.6)'}}>
           {this.state.dataContactInfo && <SubNav infos={this.state.dataContactInfo}/>}
-          <MainMenu handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
+          <MainMenu isFooter={false} handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
         <Intro api={this.props.api}/>
@@ -83,7 +83,8 @@ class App extends Component {
         <Team/>
         {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
         <footer>
-          <Footer/>
+          {this.state.dataContactInfo && <Footer infos={this.state.dataContactInfo}/>}
+          {this.state.dataContactInfo && <SubNav infos={this.state.dataContactInfo}/>}
         </footer>
         <HambMenu show={this.state.showHambMenu}
           handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}/>

@@ -44,3 +44,34 @@
     height: 100%;
     width: 100%;
 }
+
+.HolyGrail-ads h3 {
+  color: #754F44;
+  padding: 4px 6px;
+}
+
+.HolyGrail-ads ul, .HolyGrail-ads .cards, .HolyGrail-ads .address p {
+  color: #555;
+  padding: 4px 6px;
+}
+
+.indicator-map .phone-mail a {
+  border-radius: 4px;
+  display: block;
+  color: #754F44;
+  text-decoration: none;
+  padding: 4px 6px;
+}
+
+.indicator-map .phone-mail a:hover {
+  background-color: #5CAB7D;
+  color: #fff;
+}
+
+.indicator-map .phone-mail a i {
+  margin-right: 8px;
+}
+
+.indicator-map .cards img {
+  max-height: 32px;
+}
