@@ -10,6 +10,7 @@ import Team from '../Team/Team';
 import Footer from '../Footer/Footer';
 import scrollTo from './scrollTo';
 import {resizeMenuOnScroll, addRemoveClassOnScroll} from './utils';
+import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
 class App extends Component {

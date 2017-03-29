@@ -28,7 +28,7 @@ select {
 .btn {
   background-color: #0078e7;
   color: #fff;
-  font-size: 100%;
+  font-size: 1em;
   padding: 9px 1em;
   border: 0 rgba(0,0,0,0);
   text-decoration: none;
@@ -51,9 +51,74 @@ select {
   text-decoration: none;
 }
 
+.btn.reservation {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 0.8em;
+  padding: 15px 1em;
+  border-radius: 6px;
+}
+
+.btn.reservation i {
+  margin-right: 1em;
+  font-size: 1.2em;
+}
+
 .btn-small {
   font-size: 80%;
   padding: 3px .7em;
+}
+
+/* forms */
+input[type="text"], input[type="email"] {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+  outline: 0;
+  border-color: #129FEA;
+}
+
+input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+.newsletter-box input[type="text"],
+.newsletter-box input[type="email"] {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.newsletter-box h2 {
+  margin-top: 1em;
+  font-size: 2.2em;
+}
+
+.newsletter-box p {
+  margin: 1em 0;
+}
+
+.newsletter-box .btn.reservation {
+  background-color: #5CAB7D;
+  margin-top: 1em;
 }
 
 /* Grid */

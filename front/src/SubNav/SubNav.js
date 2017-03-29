@@ -1,6 +1,5 @@
 import React from 'react';
 import './SubNav.css';
-import 'font-awesome/css/font-awesome.css';
 
 const SubNave = ({infos}) => {
   return (
