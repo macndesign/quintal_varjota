@@ -45,3 +45,20 @@
 .HolyGrail-body > .text > p, .HolyGrail-content > p {
   color: #f5f5f5;
 }
+
+
+/* Button */
+
+.btn.reservation {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 0.8em;
+  padding: 15px 1em;
+  border-radius: 6px;
+}
+
+.btn.reservation i {
+  margin-right: 1em;
+  font-size: 1.2em;
+}

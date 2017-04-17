@@ -29,12 +29,14 @@ class MainSlider(TimeStampedModel):
     class Meta:
         verbose_name = _('Banner Principal')
         verbose_name_plural = _('Banners Principais')
+        ordering = ['sequence', '-created']
 
     def __str__(self):
         return self.title
 
 
 class ContactInfo(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
     name = models.CharField(_('Nome da Empresa'), max_length=75)
     email = models.EmailField(_('Email da Empresa'), max_length=75)
     evaluation_link = models.URLField(
@@ -68,12 +70,14 @@ class ContactInfo(TimeStampedModel):
     class Meta:
         verbose_name = _('Informação de Contato')
         verbose_name_plural = _('Informações de Contato')
+        ordering = ['sequence', '-created']
 
     def __str__(self):
         return self.name
 
 
 class OperatingHours(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
     week_day1 = models.CharField(_('Dia da semana 1'), max_length=75)
     week_day2 = models.CharField(_('Dia da semana 2'), max_length=75, blank=True)
     hour1 = models.TimeField(_('Hora 1'))
@@ -92,6 +96,7 @@ class OperatingHours(TimeStampedModel):
     class Meta:
         verbose_name = _('Horário de Funcionamento')
         verbose_name_plural = _('Horários de Funcionamento')
+        ordering = ['sequence', '-created']
 
     def __str__(self):
         return self.week_day1
@@ -112,6 +117,7 @@ class SocialNetworkInfo(TimeStampedModel):
         (YOUTUBE, 'YouTube'),
     )
 
+    sequence = models.IntegerField(_('Ordem'), default=0)
     name = models.CharField(_('Nome'), max_length=75, choices=SOCIAL_CHOICES)
     link = models.URLField(_('Link'), max_length=256)
     bg_color = models.CharField(
@@ -133,12 +139,14 @@ class SocialNetworkInfo(TimeStampedModel):
     class Meta:
         verbose_name = _('Rede Social')
         verbose_name_plural = _('Redes Sociais')
+        ordering = ['sequence', '-created']
 
     def __str__(self):
         return self.name
 
 
 class Card(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
     name = models.CharField(_('Nome'), max_length=75)
     image = models.ImageField(_('Imagem'), null=True, blank=True)
     contact_info = models.ForeignKey(
@@ -155,6 +163,92 @@ class Card(TimeStampedModel):
     class Meta:
         verbose_name = _('Cartão')
         verbose_name_plural = _('Cartões')
+        ordering = ['sequence', '-created']
 
     def __str__(self):
         return self.name
+
+
+class Newsletter(TimeStampedModel):
+    name = models.CharField(_('Nome'), max_length=75)
+    email = models.EmailField(_('Email'), max_length=75)
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class AboutHouse(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    title = models.CharField(_('Título'), max_length=75)
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Sobre a Casa')
+        verbose_name_plural = _('Sobre as Casas')
+        ordering = ['sequence', '-created']
+
+    def __str__(self):
+        return self.title
+
+
+class AboutHouseImage(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    title = models.CharField(_('Título'), max_length=75, blank=True)
+    description = models.TextField(_('Descrição'), blank=True)
+    image = models.ImageField(_('Imagem'))
+    about_house = models.ForeignKey(
+        AboutHouse,
+        verbose_name=_('Imagem (Sobre a Casa)'),
+        related_name='images_about_house'
+    )
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Imagem (Sobre a Casa)')
+        verbose_name_plural = _('Imagens (Sobre a Casa)')
+        ordering = ['sequence', '-created']
+
+    def __str__(self):
+        return self.title
+
+
+class AboutHouseDescription(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    title = models.CharField(_('Título'), max_length=75, blank=True)
+    description = models.TextField(_('Descrição'))
+    image = models.ImageField(_('Imagem'), blank=True, null=True)
+    about_house = models.ForeignKey(
+        AboutHouse,
+        verbose_name=_('Descrição (Sobre a Casa)'),
+        related_name='descriptions_about_house'
+    )
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Descrição (Sobre a Casa)')
+        verbose_name_plural = _('Descrições (Sobre a Casa)')
+        ordering = ['sequence', '-created']
+
+    def __str__(self):
+        res_desc = self.description[:75]
+        return res_desc if len(res_desc) < 75 else '{}...'.format(res_desc[:75])

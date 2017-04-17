@@ -1,5 +1,6 @@
 from django.contrib import admin
-from core.models import MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card
+from core.models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
+                         AboutHouseDescription, AboutHouseImage, AboutHouse)
 
 
 @admin.register(MainSlider)
@@ -22,3 +23,21 @@ class CardInline(admin.TabularInline):
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):
     inlines = [OperatingHoursInline, SocialNetworkInfoInline, CardInline]
+
+
+@admin.register(Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    pass
+
+
+class AboutHouseDescriptionInline(admin.TabularInline):
+    model = AboutHouseDescription
+
+
+class AboutHouseImageInline(admin.TabularInline):
+    model = AboutHouseImage
+
+
+@admin.register(AboutHouse)
+class AboutHouseAdmin(admin.ModelAdmin):
+    inlines = [AboutHouseDescriptionInline, AboutHouseImageInline]

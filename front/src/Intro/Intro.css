@@ -29,7 +29,7 @@
   }
 }
 
-.slick-track > div {
+.intro .slider-wrapper .slick-track > div {
   min-height: 72vh;
   background: no-repeat center center fixed;
   background-size: cover;

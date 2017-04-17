@@ -1,0 +1,56 @@
+.newsletter input[type="text"],
+.newsletter input[type="email"] {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.newsletter h2 {
+  margin-top: 1em;
+  font-size: 2.2em;
+}
+
+.newsletter p {
+  margin: 1em 0;
+}
+
+.newsletter .newsletter-btn {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 0.8em;
+  padding: 15px 1em;
+  border-radius: 6px;
+  background-color: #5CAB7D;
+  margin-top: 1em;
+  position: absolute;
+  bottom: 0;
+}
+
+.newsletter .newsletter-btn i {
+  margin-right: 1em;
+  font-size: 1.2em;
+}
+
+.newsletter .newsletter-btn--back {
+  background-color: #566269;
+}
+
+.newsletter .newsletter-inputArea .error {
+  color: #754f44;
+  font-size: .7em;
+  min-height: 1.2em;
+}
+
+.newsletter .newsletter-inputArea,
+.newsletter .newsletter-successArea {
+  min-height: 170px;
+  position: relative;
+}
+
+.newsletter .newsletter-successArea div {
+  background: #93ab96;
+  color: #fff;
+  border-radius: 4px;
+  padding: .7em;
+  text-align: center;
+}

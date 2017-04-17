@@ -1,4 +1,4 @@
-from .models import MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card
+from .models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter)
 from rest_framework import serializers
 
 
@@ -44,3 +44,9 @@ class ContactInfoSerializer(serializers.HyperlinkedModelSerializer):
         model = ContactInfo
         fields = ('id', 'name', 'email', 'evaluation_link', 'phone_service', 'phone_reservations', 'address',
                   'map_url', 'map_lat', 'map_lng', 'active', 'operating_hours', 'socials', 'cards')
+
+
+class NewsletterSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Newsletter
+        fields = ('id', 'name', 'email')

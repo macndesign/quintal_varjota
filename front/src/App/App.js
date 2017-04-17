@@ -79,7 +79,7 @@ class App extends Component {
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
         <Intro api={this.props.api}/>
-        <AboutHouse/>
+        <AboutHouse api={this.props.api}/>
         <Links/>
         <Team/>
         {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
