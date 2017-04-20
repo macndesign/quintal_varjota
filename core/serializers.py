@@ -1,5 +1,7 @@
-from .models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter)
+from .models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
+                     AboutHouseImage, AboutHouseDescription, AboutHouse, MenuItem, Menu)
 from rest_framework import serializers
+from rest_framework.reverse import reverse
 
 
 class MainSliderSerializer(serializers.HyperlinkedModelSerializer):
@@ -50,3 +52,54 @@ class NewsletterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Newsletter
         fields = ('id', 'name', 'email')
+
+
+class AboutHouseImageSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = AboutHouseImage
+        fields = ('id', 'title', 'description', 'image')
+
+
+class AboutHouseDescriptionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = AboutHouseDescription
+        fields = ('id', 'title', 'description', 'image')
+
+
+class AboutHouseSerializer(serializers.HyperlinkedModelSerializer):
+    images_about_house = AboutHouseImageSerializer(
+        read_only=True,
+        many=True
+    )
+    descriptions_about_house = AboutHouseDescriptionSerializer(
+        read_only=True,
+        many=True
+    )
+
+    class Meta:
+        model = AboutHouse
+        fields = ('id', 'title', 'images_about_house', 'descriptions_about_house')
+
+
+class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
+    links = serializers.SerializerMethodField()
+
+    class Meta:
+        model = MenuItem
+        fields = ('id', 'title', 'description', 'image', 'thumb', 'links')
+
+    def get_links(self, obj):
+        request = self.context['request']
+        return {
+            'self': reverse(
+                'menuitem-detail',
+                kwargs={'pk': obj.pk},
+                request=request
+            )
+        }
+
+
+class MenuSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Menu
+        fields = ('id', 'title', 'description')

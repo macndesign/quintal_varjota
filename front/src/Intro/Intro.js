@@ -46,7 +46,7 @@ class Intro extends Component {
             <div className="slider-wrapper">
               <Slider {...settings}>
                 {this.state.dataMainSlider.results.map(item => (
-                  <div key={item.id} style={{backgroundImage: `url(${item.image})`}}></div>
+                  <div key={item.id} style={{backgroundImage: `url(${item.image})`}}/>
                 ))}
               </Slider>
             </div>

@@ -252,3 +252,48 @@ class AboutHouseDescription(TimeStampedModel):
     def __str__(self):
         res_desc = self.description[:75]
         return res_desc if len(res_desc) < 75 else '{}...'.format(res_desc[:75])
+
+
+class Menu(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    title = models.CharField(_('Título'), max_length=256)
+    description = models.TextField(_('Descrição'))
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Nosso Sabor')
+        verbose_name_plural = _('Nossos Sabores')
+        ordering = ['sequence', '-created']
+
+    def __str__(self):
+        return self.title
+
+
+class MenuItem(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    title = models.CharField(_('Título'), max_length=256)
+    description = models.TextField(_('Descrição'))
+    image = models.ImageField(_('Imagem'))
+    thumb = models.ImageField(_('Thumbnail'))
+    active = models.BooleanField(_('Ativo'), default=True)
+    menu = models.ForeignKey(
+        Menu,
+        verbose_name=_('Prato'),
+        related_name='menu_items'
+    )
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Prato')
+        verbose_name_plural = _('Pratos')
+        ordering = ['sequence', '-created']
+
+    def __str__(self):
+        return self.title

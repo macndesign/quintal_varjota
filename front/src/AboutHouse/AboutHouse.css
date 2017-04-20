@@ -29,4 +29,29 @@
     height: 80vmin;
     padding: 20px;
   }
+  /* Body */
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description {
+    display: flex;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText {
+    flex: 3;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage {
+    flex: 1;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage img {
+    max-width: 100%;
+  }
+}
+
+.about-house .aboutHouse-sliderWrapper {
+  margin: 2em;
+}
+
+.about-house .aboutHouse-sliderWrapper .image img {
+  max-height: 200px;
+}
+
+.about-house .slick-arrow:before {
+  color: rgb(75, 54, 33);
 }

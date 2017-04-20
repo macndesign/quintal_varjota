@@ -19,7 +19,10 @@ class App extends Component {
     this.state = {
       showHambMenu: false,
       // Global data
-      dataContactInfo: null
+      dataContactInfo: null,
+      dataAboutHouse: null,
+      dataMenu: null,
+      dataMenuItem: null
     }
   }
 
@@ -64,6 +67,15 @@ class App extends Component {
     axios.get(this.props.api['contact-info'] + '?active=True').then(res => {
       this.setState({dataContactInfo: res.data});
     });
+    axios.get(this.props.api['about-house'] + '?active=True').then(res => {
+      this.setState({dataAboutHouse: res.data});
+    });
+    axios.get(this.props.api['menu']).then(res => {
+      this.setState({dataMenu: res.data});
+    });
+    axios.get(this.props.api['menu-item'] + '?page_size=4').then(res => {
+      this.setState({dataMenuItem: res.data});
+    });
   }
 
   componentWillUnmount() {
@@ -79,8 +91,9 @@ class App extends Component {
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
         <Intro api={this.props.api}/>
-        <AboutHouse api={this.props.api}/>
-        <Links/>
+        {this.state.dataAboutHouse && <AboutHouse api={this.props.api} aboutHouse={this.state.dataAboutHouse}/>}
+        {this.state.dataMenu && this.state.dataMenuItem &&
+        <Links menu={this.state.dataMenu} menuItem={this.state.dataMenuItem}/>}
         <Team/>
         {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
         <footer>

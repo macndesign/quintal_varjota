@@ -19,19 +19,3 @@
   font-size: 2.5em;
   text-transform: uppercase;
 }
-
-.team > .HolyGrail-body > .text > p {
-  margin-top: .5em;
-  font-size: 1.2em;
-}
-
-.team > .HolyGrail-body > .text > p > a {
-  border-bottom: 2px solid rgba(192, 192, 192, 0);
-  text-decoration: none;
-  transition: border 500ms ease;
-  display: inline-block;
-}
-
-.team > .HolyGrail-body > .text > p > a:hover {
-  border-bottom: 2px solid rgba(153, 153, 153, 1);
-}

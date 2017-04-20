@@ -1,6 +1,6 @@
 from django.contrib import admin
 from core.models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
-                         AboutHouseDescription, AboutHouseImage, AboutHouse)
+                         AboutHouseDescription, AboutHouseImage, AboutHouse, MenuItem, Menu)
 
 
 @admin.register(MainSlider)
@@ -41,3 +41,12 @@ class AboutHouseImageInline(admin.TabularInline):
 @admin.register(AboutHouse)
 class AboutHouseAdmin(admin.ModelAdmin):
     inlines = [AboutHouseDescriptionInline, AboutHouseImageInline]
+
+
+class MenuItemInline(admin.TabularInline):
+    model = MenuItem
+
+
+@admin.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    inlines = [MenuItemInline]

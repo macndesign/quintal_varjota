@@ -1,14 +1,45 @@
 import React from 'react';
 import Newsletter from '../Newsletter/Newsletter';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './AboutHouse.css';
 
-const AboutHouse = ({api}) => (
+const settings = {
+  className: 'center',
+  centerMode: true,
+  infinite: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  speed: 500
+};
+
+const AboutHouse = ({api, aboutHouse}) => aboutHouse.results.length > 0 && (
   <div className="about-house">
     <div id="about-house" className="HolyGrail">
-      <h1>Sobre a Casa</h1>
+      <h1>{aboutHouse.results[0].title}</h1>
       <div className="HolyGrail-body">
-        <main className="HolyGrail-content" id="map-container">
-          Loren ipsum.
+        <main className="HolyGrail-content">
+          {aboutHouse.results[0].descriptions_about_house.map((item) => (
+            <div key={item.id} className="description">
+              <div className="descriptionText">
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+              <div className="descriptionImage">
+                <img src={item.image} alt={item.title} />
+              </div>
+            </div>
+          ))}
+          <div className="aboutHouse-sliderWrapper">
+            <Slider {...settings}>
+              {aboutHouse.results[0].images_about_house.map((item) => (
+                <div key={item.id} className="image">
+                  <img src={item.image} alt={item.title} />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </main>
         <aside className="HolyGrail-ads">
           <button className='btn reservation'>

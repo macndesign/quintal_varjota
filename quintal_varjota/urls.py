@@ -24,6 +24,9 @@ router = routers.DefaultRouter()
 router.register(r'main-slider', views.MainSliderViewSet)
 router.register(r'contact-info', views.ContactInfoViewSet)
 router.register(r'newsletter', views.NewsletterViewSet)
+router.register(r'about-house', views.AboutHouseViewSet)
+router.register(r'menu-item', views.MenuItemViewSet)
+router.register(r'menu', views.MenuViewSet)
 
 urlpatterns = [
     # Rest
