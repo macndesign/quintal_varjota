@@ -52,11 +52,11 @@ header {
   transition-duration: 0.3s;
   transition-property: color;
   text-decoration: none;
-  color: #754F44;
+  color: #555;
 }
 
 .menu > li.item > a:hover {
-  color: #8FBC94;
+  color: #000;
 }
 
 .menu > li.item > a:active {
@@ -64,13 +64,13 @@ header {
 }
 
 .item.selected {
-  background-color: #44633F !important;
+  background-color: rgba(0, 0, 0, .6) !important;
   animation: fadeInOpacity 1s infinite alternate;
   border-radius: 4px;
 }
 
 .menu-smaller .selected {
-  background-color: #5CAB7D !important;
+  background-color: rgba(0,0,0,.6) !important;
 }
 
 .selected > a {

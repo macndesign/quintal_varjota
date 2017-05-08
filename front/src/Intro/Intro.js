@@ -4,13 +4,6 @@ import './Intro.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import img1 from '../images/intro6.jpg';
-
-const backgroundStyle = {
-  backgroundColor: '#fff',
-  background: `url(${img1})`,
-  backgroundSize: 'cover'
-};
 
 const settings = {
   dots: true,
@@ -40,7 +33,7 @@ class Intro extends Component {
 
   render() {
     return this.state.dataMainSlider && (
-      <div id="intro" className="intro" style={backgroundStyle}>
+      <div id="intro" className="intro">
         <div className="HolyGrail-body">
           <div className='text'>
             <div className="slider-wrapper">

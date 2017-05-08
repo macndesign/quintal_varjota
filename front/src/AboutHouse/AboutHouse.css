@@ -1,6 +1,5 @@
 .about-house {
   /*background: linear-gradient(rgb(75, 106, 180), rgba(75, 106, 180, 0.7));*/
-  background-image: url('../images/intro5.jpg');
   background-size: cover;
   min-height: 100vh;
   display: block;
@@ -15,7 +14,6 @@
 .about-house > .HolyGrail > h1 {
   padding: 115px 0 15px;
   text-align: center;
-  color: #754F44;
 }
 
 /* desktop */

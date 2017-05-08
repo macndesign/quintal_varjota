@@ -1,7 +1,8 @@
+/* Nossos Sabores */
+
 .links {
   min-height: 100vh;
   display: flex;
-  background: #455A64 url('../images/intro1.jpg');
   background-size: cover;
 }
 
