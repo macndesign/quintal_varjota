@@ -7,14 +7,14 @@ from .filters import ContactInfoFilterSet, AboutHouseFilterSet
 from rest_framework.pagination import PageNumberPagination
 
 
+def home(request):
+    return render(request, 'index.html')
+
+
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 100
     page_size_query_param = 'page_size'
     max_page_size = 1000
-
-
-def home(request):
-    return render(request, 'index.html')
 
 
 class MainSliderViewSet(viewsets.ModelViewSet):

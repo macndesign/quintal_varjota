@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from core import views
+from maintenance.views import maintenance
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -35,5 +36,6 @@ urlpatterns = [
 
     # Site
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home),
+    url(r'^site/', views.home),
+    url(r'^$', maintenance),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
