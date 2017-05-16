@@ -20,12 +20,11 @@
 @media (min-width: 768px) {
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content {
     flex: 1;
-    height: 80vmin;
+    min-height: 80vmin;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-ads {
-    max-width: 280px;
-    height: 80vmin;
-    padding: 20px;
+    max-width: 230px;
+    padding: 0 20px;
   }
   /* Body */
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description {
@@ -33,6 +32,9 @@
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText {
     flex: 3;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText p {
+    margin: .5em 1em 2em 0;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage {
     flex: 1;

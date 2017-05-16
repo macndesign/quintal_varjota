@@ -28,9 +28,7 @@ class Links extends Component {
         </div>}
         <div className="linksBody linksDetail">
           {this.state.currItem && <div className="linksDetail-full">
-            <div className="linksDetail-image">
-              <img src={this.state.currItem.image} alt={this.state.currItem.title}/>
-            </div>
+            <div className="linksDetail-image" style={{backgroundImage: `url(${this.state.currItem.image})`}}/>
             <div className="linksDetail-body">
               <h1>{this.state.currItem.title}</h1>
               <p>{this.state.currItem.description}</p>
@@ -43,9 +41,9 @@ class Links extends Component {
             <i className="fa fa-arrow-up" aria-hidden="true"/>
           </button>
           <div className="linksThumbs-body">
-            {this.state.menuItem.results.map((item) => <div key={item.id}>
-              <img src={item.thumb} alt={item.title} onClick={() => this.handleClickThumb(item)}/>
-            </div>)}
+            {this.state.menuItem.results.map((item) => (
+              <div key={item.id} style={{backgroundImage: `url(${item.thumb})`}} onClick={() => this.handleClickThumb(item)}/>
+            ))}
           </div>
           <button className="btn linksThumbs-button--next" disabled={!this.state.menuItem.next}
                   onClick={() => this.handleClickThumbArrowBtn(this.state.menuItem.next)}>

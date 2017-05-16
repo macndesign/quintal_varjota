@@ -30,20 +30,20 @@
 }
 
 .links .linksThumbs .linksThumbs-body div {
-  padding: 0 10px;
   display: flex;
   flex-direction: row;
-}
-
-.links .linksThumbs .linksThumbs-body div img {
   width: 100%;
-  max-height: 15.5vh;
+  height: 15.5vh;
   margin: 1vh 0;
   border-radius: 4px;
   opacity: 0.9;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  float: right;
 }
 
-.links .linksThumbs .linksThumbs-body div img:hover {
+.links .linksThumbs .linksThumbs-body div:hover {
   opacity: 1;
   cursor: pointer;
 }
@@ -51,6 +51,7 @@
 .links .linksThumbs .linksThumbs-button--prev,
 .links .linksThumbs .linksThumbs-button--next {
   height: 30px;
+  width: 100%;
 }
 
 .links .linksThumbs .btn {
@@ -59,8 +60,11 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.links .linksDetail .linksDetail-image img {
+.links .linksDetail .linksDetail-image {
   width: 100%;
-  max-height: 350px;
+  height: 350px;
   border-radius: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
