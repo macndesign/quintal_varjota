@@ -31,7 +31,13 @@
 
 .intro .slider-wrapper .slick-track > div {
   min-height: 72vh;
-  background: no-repeat center center fixed;
-  background-size: cover;
-  border-radius: 4px;
+}
+
+.intro .slider-wrapper .slick-track > div > img {
+  height: 72vh;
+  margin: 0 auto;
+}
+
+.slick-dots li button:before {
+  color: #fff !important;
 }
