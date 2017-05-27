@@ -28,6 +28,7 @@ router.register(r'newsletter', views.NewsletterViewSet)
 router.register(r'about-house', views.AboutHouseViewSet)
 router.register(r'menu-item', views.MenuItemViewSet)
 router.register(r'menu', views.MenuViewSet)
+router.register(r'reservation', views.RestaurantReservationViewSet)
 
 urlpatterns = [
     # Rest

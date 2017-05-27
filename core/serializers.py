@@ -1,5 +1,6 @@
 from .models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
-                     AboutHouseImage, AboutHouseDescription, AboutHouse, MenuItem, Menu)
+                     AboutHouseImage, AboutHouseDescription, AboutHouse, MenuItem, Menu, RestaurantTable,
+                     RestaurantReservation)
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
@@ -103,3 +104,20 @@ class MenuSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Menu
         fields = ('id', 'title', 'description')
+
+
+class RestaurantTableSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = RestaurantTable
+        fields = ('id', 'number', 'quantity', 'description', 'image')
+
+
+class RestaurantReservationSerializer(serializers.HyperlinkedModelSerializer):
+    tables = RestaurantTableSerializer(
+        read_only=True,
+        many=True
+    )
+
+    class Meta:
+        model = RestaurantReservation
+        fields = ('id', 'name', 'phone', 'email', 'quantity', 'time_stamped', 'tables')

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from core.models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
-                         AboutHouseDescription, AboutHouseImage, AboutHouse, MenuItem, Menu)
+                         AboutHouseDescription, AboutHouseImage, AboutHouse, MenuItem, Menu, RestaurantTable,
+                         RestaurantReservation)
 
 
 @admin.register(MainSlider)
@@ -50,3 +51,23 @@ class MenuItemInline(admin.TabularInline):
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
     inlines = [MenuItemInline]
+
+
+@admin.register(RestaurantTable)
+class RestaurantTableAdmin(admin.ModelAdmin):
+    list_display = ('number', 'quantity', 'description', 'reservations')
+
+
+class RestaurantTableInline(admin.TabularInline):
+    model = RestaurantTable
+    extra = 0
+    readonly_fields = ('number', 'quantity', 'description', 'sequence', 'image')
+
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(RestaurantReservation)
+class RestaurantReservationAdmin(admin.ModelAdmin):
+    inlines = [RestaurantTableInline]
+    list_display = ('name', 'email', 'phone', 'time_stamped')

@@ -297,3 +297,57 @@ class MenuItem(TimeStampedModel):
 
     def __str__(self):
         return self.title
+
+
+class RestaurantReservation(TimeStampedModel):
+    name = models.CharField(_('Nome'), max_length=120)
+    phone = models.CharField(_('Telefone'), help_text=_('(99) 99999-9999'), max_length=20, unique=True)
+    email = models.EmailField(_('Email'), blank=True)
+    quantity = models.IntegerField(_('Quantidade de Cadeiras'))
+    time_stamped = models.DateTimeField(_('Data e Hora'))
+    active = models.BooleanField(_('Ativo'), default=False, help_text=_('Confirmação de reserva'))
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Reserva')
+        verbose_name_plural = _('Reservas')
+        ordering = ['-time_stamped', '-created']
+
+    def __str__(self):
+        return '{} - {} - {}/{}/{} às {}:{}h'.format(self.email if self.email else self.name, self.phone,
+                                                     self.time_stamped.day, self.time_stamped.month,
+                                                     self.time_stamped.year, self.time_stamped.hour,
+                                                     self.time_stamped.minute)
+
+
+class RestaurantTable(TimeStampedModel):
+    sequence = models.IntegerField(_('Ordem'), default=0)
+    number = models.IntegerField(_('Número da Mesa'), unique=True)
+    quantity = models.IntegerField(_('Quantidade de Cadeiras'))
+    description = models.TextField(_('Descrição'), blank=True)
+    image = models.ImageField(_('Imagem da Mesa'), blank=True, null=True)
+    active = models.BooleanField(_('Ativo'), default=True)
+
+    reservations = models.ForeignKey(
+        RestaurantReservation,
+        verbose_name=_('Reserva'),
+        related_name='tables',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+
+    # Managers
+    objects = models.Manager()
+    actives = ActiveManager()
+
+    class Meta:
+        verbose_name = _('Mesa')
+        verbose_name_plural = _('Mesas')
+        ordering = ['sequence', 'number', '-created']
+
+    def __str__(self):
+        return '{} - Quantity: {}'.format(self.number, self.quantity)
