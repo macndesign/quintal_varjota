@@ -120,4 +120,4 @@ class RestaurantReservationSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = RestaurantReservation
-        fields = ('id', 'name', 'phone', 'email', 'quantity', 'time_stamped', 'tables')
+        fields = ('id', 'name', 'phone', 'email', 'quantity', 'time_stamped', 'tables', 'active')

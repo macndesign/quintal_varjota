@@ -22,7 +22,8 @@ class App extends Component {
       dataContactInfo: null,
       dataAboutHouse: null,
       dataMenu: null,
-      dataMenuItem: null
+      dataMenuItem: null,
+      dataReservation: null
     }
   }
 
@@ -76,6 +77,9 @@ class App extends Component {
     axios.get(this.props.api['menu-item'] + '?page_size=4').then(res => {
       this.setState({dataMenuItem: res.data});
     });
+    axios.get(this.props.api['reservation']).then(res => {
+      this.setState({dataReservation: res.data});
+    });
   }
 
   componentWillUnmount() {
@@ -94,7 +98,8 @@ class App extends Component {
         {this.state.dataAboutHouse && <AboutHouse api={this.props.api} aboutHouse={this.state.dataAboutHouse}/>}
         {this.state.dataMenu && this.state.dataMenuItem &&
         <Links menu={this.state.dataMenu} menuItem={this.state.dataMenuItem}/>}
-        <Team/>
+        {/* Reservation */}
+        {this.state.dataReservation && <Team api={this.props.api} reservations={this.state.dataReservation} />}
         {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
         <footer>
           {this.state.dataContactInfo && <Footer infos={this.state.dataContactInfo}/>}

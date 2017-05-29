@@ -60,7 +60,11 @@ select {
 }
 
 /* forms */
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="tel"] {
   padding: 0.5em 0.6em;
   display: inline-block;
   border: 1px solid #ccc;
@@ -80,7 +84,11 @@ input:not([type]) {
     box-sizing: border-box;
 }
 
-input[type="text"]:focus, input[type="email"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="tel"]:focus {
   outline: 0;
   border-color: #129FEA;
 }
