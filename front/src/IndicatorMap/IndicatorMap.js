@@ -1,30 +1,19 @@
-import Leaflet from 'leaflet';
 import React, {Component} from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import {emptyMap} from './utils';
 import './IndicatorMap.css';
-import 'leaflet/dist/leaflet.css';
-Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
-
-// Create your own class, extending from the Marker class.
-class ExtendedMarker extends Marker {
-	// "Hijack" the component lifecycle.
-  componentDidMount() {
-  	// Call the Marker class componentDidMount (to make sure everything behaves as normal)
-  	super.componentDidMount();
-
-    // Access the marker element and open the popup.
-    this.leafletElement.openPopup();
-  }
-}
 
 class IndicatorMap extends Component {
   constructor(props) {
     super(props);
-    this.newOptions = emptyMap;
+    // https://maps.googleapis.com/maps/api/staticmap?size=500x300&scale=2&maptype=roadmap&markers=-3.729006,-38.4895223&key=AIzaSyDPemWaG9Q6WWSjxgqiSzhFLTXkeNNjJPo
+    // [this.state.info.map_lat, this.state.info.map_lng]
+    // this.state.info.address
+    // this.state.info.map_url
     this.state = {
       info: null,
-      zoom: 17
+      size: '500x300',
+      scale: '2',
+      maptype: 'roadmap',
+      key: 'AIzaSyDPemWaG9Q6WWSjxgqiSzhFLTXkeNNjJPo'
     };
   }
 
@@ -39,23 +28,11 @@ class IndicatorMap extends Component {
       <div className="indicator-map">
         <div id="indicator-map" className="HolyGrail">
           <div className="HolyGrail-body">
-            <main className="HolyGrail-content" id="map-container">
-              <Map center={[this.state.info.map_lat, this.state.info.map_lng]} zoom={this.state.zoom}>
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-                />
-              <ExtendedMarker position={[this.state.info.map_lat, this.state.info.map_lng]}>
-                  <Popup>
-                    <span>
-                    {this.state.info.address}<br/>
-                    <a href={this.state.info.map_url} target="_blank">
-                      Visualizar mapa ampliado
-                    </a>
-                    </span>
-                  </Popup>
-                </ExtendedMarker>
-              </Map>
+            <main className="HolyGrail-content">
+              <div className="map-container"
+                style={{backgroundImage: `url(https://maps.googleapis.com/maps/api/staticmap?size=${this.state.size}&scale=${this.state.scale}&maptype=${this.state.maptype}&markers=${this.state.info.map_lat},${this.state.info.map_lng}&key=${this.state.key})`}}>
+                <a href={this.state.info.map_url} target="_blank">{this.state.info.address}</a>
+              </div>
             </main>
             <aside className="HolyGrail-ads">
               <div className='hours'>
