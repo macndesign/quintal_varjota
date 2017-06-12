@@ -128,7 +128,10 @@ class Team extends Component {
   };
   successArea = () => (
     <div className="reservation-successArea">
-      <div>Reserva cadastrada com sucesso!</div><br/>
+      <div>
+        Você receberá um email de confirmação de sua reserva.<br/>
+        Para cancelar sua reserva, você poderá ligar para o restaurante <a href="tel:(85) 3109.3333">(85) 3109-3333</a>
+      </div><br/>
       <button className='btn reservation-btn reservation-btn--back' onClick={this.handleBackToForm}>
         <i className="fa fa-history" aria-hidden="true"/>&nbsp;
         Voltar

@@ -104,3 +104,16 @@
   padding: .3em .5em;
   margin-top: .5em;
 }
+
+.reservation-successArea {
+  background: rgba(255, 255, 255, .2);
+  padding: .5em;
+  border-radius: 4px;
+}
+
+.reservation-successArea a {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  padding: .3em;
+}
