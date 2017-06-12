@@ -1,3 +1,6 @@
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+from import_export import fields
 from django.contrib import admin
 from core.models import (MainSlider, ContactInfo, OperatingHours, SocialNetworkInfo, Card, Newsletter,
                          AboutHouseDescription, AboutHouseImage, AboutHouse, MenuItem, Menu, RestaurantTable,
@@ -26,9 +29,18 @@ class ContactInfoAdmin(admin.ModelAdmin):
     inlines = [OperatingHoursInline, SocialNetworkInfoInline, CardInline]
 
 
+class NewsletterResource(resources.ModelResource):
+    class Meta:
+        model = Newsletter
+        fields = ('name', 'email')
+
+
 @admin.register(Newsletter)
-class NewsletterAdmin(admin.ModelAdmin):
-    pass
+class NewsletterAdmin(ImportExportModelAdmin):
+    resource_class = NewsletterResource
+    list_display = ('created', 'name', 'email')
+    search_fields = ('name', 'email')
+    ordering = ('-created',)
 
 
 class AboutHouseDescriptionInline(admin.TabularInline):
