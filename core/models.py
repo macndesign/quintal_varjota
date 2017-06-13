@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -303,7 +304,10 @@ class RestaurantReservation(TimeStampedModel):
     name = models.CharField(_('Nome'), max_length=120)
     phone = models.CharField(_('Telefone'), help_text=_('(99) 99999-9999'), max_length=20, unique=True)
     email = models.EmailField(_('Email'), blank=True)
-    quantity = models.IntegerField(_('Quantidade de Cadeiras'))
+    quantity = models.IntegerField(
+        _('Quantidade de Cadeiras'),
+        validators=[MinValueValidator(1), MaxValueValidator(12)]
+    )
     time_stamped = models.DateTimeField(_('Data e Hora'))
     active = models.BooleanField(_('Ativo'), default=False, help_text=_('Confirmação de reserva'))
 

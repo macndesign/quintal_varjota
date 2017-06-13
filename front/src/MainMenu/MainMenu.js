@@ -18,6 +18,9 @@ export const HambMenu = ({handleScrollToMenuItemClick, show}) => {
         <li id="teamMenuItem" className="item">
           <a onClick={() => handleScrollToMenuItemClick('team')}>Reservas</a>
         </li>
+        <li id="eventsMenuItem" className="item">
+          <a onClick={() => handleScrollToMenuItemClick('events')}>Eventos</a>
+        </li>
         <li id="indicatorMapMenuItem" className="item">
           <a onClick={() => handleScrollToMenuItemClick('indicator-map')}>Contato</a>
         </li>
@@ -51,6 +54,9 @@ const MainMenu = ({handleScrollToMenuItemClick, handleHambMenuClick, isFooter}) 
       </li>
       <li id="teamMenuItem" className="item">
         <a onClick={() => handleScrollToMenuItemClick('team')}>Reservas</a>
+      </li>
+      <li id="eventsMenuItem" className="item">
+        <a onClick={() => handleScrollToMenuItemClick('events')}>Eventos</a>
       </li>
       <li id="indicatorMapMenuItem" className="item">
         <a onClick={() => handleScrollToMenuItemClick('indicator-map')}>Contato</a>

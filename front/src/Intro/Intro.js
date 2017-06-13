@@ -1,51 +1,22 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import video from './big_buck_bunny.mp4';
 import './Intro.css';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-const settings = {
-  dots: true,
-  infinite: true,
-  // speed: 500,
-  fade: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: false,
-  autoplaySpeed: 4000,
-  pauseOnHover: true
-};
 
 class Intro extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dataMainSlider: null
-    }
-  }
-
-  componentDidMount() {
-    axios.get(this.props.api['main-slider']).then(res => {
-      this.setState({dataMainSlider: res.data});
-    });
+    this.state = {}
   }
 
   render() {
-    return this.state.dataMainSlider && (
+    return (
       <div id="intro" className="intro">
-        <div className="HolyGrail-body">
-          <div className='text'>
-            <div className="slider-wrapper">
-              <Slider {...settings}>
-                {this.state.dataMainSlider.results.map(item => (
-                  <div key={item.id}>
-                    <img src={item.image} alt={item.name} />
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
+        <div className="video-wrapper">
+          <video loop="true" muted="true" autoPlay="true" poster="img/videoframe.jpg">
+              <source src={video} type="video/mp4"/>
+              {/*<source src="video/big_buck_bunny.ogv" type="video/ogg">
+              <source src="video/big_buck_bunny.webm" type="video/webm">*/}
+          </video>
         </div>
       </div>
     )

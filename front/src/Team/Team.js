@@ -166,6 +166,11 @@ class Team extends Component {
                       </div>
                     ))}
                 </div>
+                <div className="reservation-list--legend">
+                  <div className="reservation-list--legend-text">Legenda:</div>
+                  <div className="reservation-list--legend-confirmed"></div>
+                  <div className="reservation-list--legend-confirmed" style={{marginLeft: '5px', background: '#000'}}></div>
+                </div>
               </div>
             </div>
           </div>
