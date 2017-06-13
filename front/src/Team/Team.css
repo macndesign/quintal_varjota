@@ -109,20 +109,24 @@
   background: #fff;
   padding: 5px;
   min-height: 20px;
+  border-radius: 4px;
 }
 
 .reservation-list--legend-text {
   color: #000;
   float: left;
-  margin-right: 5px;
+  margin: 2px 5px 0 0;
+  font-size: .8em;
 }
 
 .reservation-list--legend-confirmed {
   background: #5CAB7D;
   float: left;
-  width: 40px;
-  height: 20px;
   border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: .6em;
+  padding: 5px 10px;
 }
 
 .reservation-successArea {

@@ -42,10 +42,6 @@ const AboutHouse = ({api, aboutHouse}) => aboutHouse.results.length > 0 && (
           </div>
         </main>
         <aside className="HolyGrail-ads">
-          <button className='btn reservation'>
-            <i className="fa fa-cutlery" aria-hidden="true"/>
-            Faça sua reserva
-          </button>
           <Newsletter api={api}/>
         </aside>
       </div>

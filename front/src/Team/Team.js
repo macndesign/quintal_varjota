@@ -168,8 +168,8 @@ class Team extends Component {
                 </div>
                 <div className="reservation-list--legend">
                   <div className="reservation-list--legend-text">Legenda:</div>
-                  <div className="reservation-list--legend-confirmed"></div>
-                  <div className="reservation-list--legend-confirmed" style={{marginLeft: '5px', background: '#000'}}></div>
+                  <div className="reservation-list--legend-confirmed">Confirmado</div>
+                  <div className="reservation-list--legend-confirmed" style={{marginLeft: '5px', background: '#000'}}>Não Confirmado</div>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import video from './big_buck_bunny.mp4';
+import video from './video.mp4';
 import './Intro.css';
 
 class Intro extends Component {

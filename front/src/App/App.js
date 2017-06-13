@@ -7,7 +7,7 @@ import IndicatorMap from '../IndicatorMap/IndicatorMap';
 import AboutHouse from '../AboutHouse/AboutHouse';
 import Links from '../Links/Links';
 import Team from '../Team/Team';
-import Events from '../Events/Events';
+// import Events from '../Events/Events';
 import Footer from '../Footer/Footer';
 import scrollTo from './scrollTo';
 import {resizeMenuOnScroll, addRemoveClassOnScroll} from './utils';
@@ -40,8 +40,8 @@ class App extends Component {
     let teamMenuItem = document.getElementById('teamMenuItem');
     let team = document.getElementById('team');
 
-    let eventsMenuItem = document.getElementById('eventsMenuItem');
-    let events = document.getElementById('events');
+    // let eventsMenuItem = document.getElementById('eventsMenuItem');
+    // let events = document.getElementById('events');
 
     let indicatorMapMenuItem = document.getElementById('indicatorMapMenuItem');
     let indicatorMap = document.getElementById('indicator-map');
@@ -52,7 +52,7 @@ class App extends Component {
     addRemoveClassOnScroll(aboutHouseMenuItem, aboutHouse.offsetTop);
     addRemoveClassOnScroll(linksMenuItem, links.offsetTop);
     addRemoveClassOnScroll(teamMenuItem, team.offsetTop);
-    addRemoveClassOnScroll(eventsMenuItem, events.offsetTop);
+    // addRemoveClassOnScroll(eventsMenuItem, events.offsetTop);
     addRemoveClassOnScroll(indicatorMapMenuItem, indicatorMap.offsetTop);
   }
 
@@ -99,13 +99,13 @@ class App extends Component {
           <MainMenu isFooter={false} handleScrollToMenuItemClick={this.handleScrollToMenuItemClick}
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
-        <Intro api={this.props.api}/>
+        <Intro/>
         {this.state.dataAboutHouse && <AboutHouse api={this.props.api} aboutHouse={this.state.dataAboutHouse}/>}
         {this.state.dataMenu && this.state.dataMenuItem &&
         <Links menu={this.state.dataMenu} menuItem={this.state.dataMenuItem}/>}
         {/* Reservation */}
         {this.state.dataReservation && <Team api={this.props.api} reservations={this.state.dataReservation} />}
-        <Events api={this.props.api}/>
+        {/*<Events api={this.props.api}/>*/}
         {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
         <footer>
           {this.state.dataContactInfo && <Footer infos={this.state.dataContactInfo}/>}

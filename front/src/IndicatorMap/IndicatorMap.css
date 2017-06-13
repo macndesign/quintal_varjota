@@ -39,6 +39,8 @@
 
 .map-container {
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   border-radius: 2px;
@@ -54,10 +56,9 @@
   padding: 1em;
   text-align: center;
   position: absolute;
+  bottom: 40px;
   margin-left: 50%;
   left: -20%;
-  margin-top: 50%;
-  top: -28%;
   text-decoration: none;
 }
 
