@@ -106,7 +106,7 @@ class App extends Component {
         {/* Reservation */}
         {this.state.dataReservation && <Team api={this.props.api} reservations={this.state.dataReservation} />}
         {/*<Events api={this.props.api}/>*/}
-        {this.state.dataContactInfo && <IndicatorMap infos={this.state.dataContactInfo}/>}
+        {this.state.dataContactInfo && <IndicatorMap api={this.props.api} infos={this.state.dataContactInfo}/>}
         <footer>
           {this.state.dataContactInfo && <Footer infos={this.state.dataContactInfo}/>}
           {this.state.dataContactInfo && <SubNav infos={this.state.dataContactInfo}/>}

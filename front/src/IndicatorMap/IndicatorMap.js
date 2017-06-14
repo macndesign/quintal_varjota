@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Newsletter from '../Newsletter/Newsletter';
 import './IndicatorMap.css';
 
 class IndicatorMap extends Component {
@@ -35,6 +36,7 @@ class IndicatorMap extends Component {
               </div>
             </main>
             <aside className="HolyGrail-ads">
+              <Newsletter api={this.props.api}/><br/>
               <div className='hours'>
                 <h3>Horário de Funcionamento</h3>
                 <ul>
@@ -53,10 +55,6 @@ class IndicatorMap extends Component {
                   <img key={item.id} src={item.image}
                     alt={item.name} title={item.name}/>
                 ))}
-              </div>
-              <div className='address'>
-                <h3>Endereço</h3>
-                <p>{this.state.info.address}</p>
               </div>
               <div className='phone-mail'>
                 <p>

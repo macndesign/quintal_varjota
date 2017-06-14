@@ -17,7 +17,6 @@ const settings = {
 const AboutHouse = ({api, aboutHouse}) => aboutHouse.results.length > 0 && (
   <div className="about-house">
     <div id="about-house" className="HolyGrail">
-      <h1>{aboutHouse.results[0].title}</h1>
       <div className="HolyGrail-body">
         <main className="HolyGrail-content">
           {aboutHouse.results[0].descriptions_about_house.map((item) => (

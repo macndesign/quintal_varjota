@@ -8,12 +8,7 @@
 }
 
 .about-house > .HolyGrail {
-  padding: 0 1em;
-}
-
-.about-house > .HolyGrail > h1 {
-  padding: 115px 0 15px;
-  text-align: center;
+  padding: 115px 1em 0;
 }
 
 /* desktop */
@@ -29,18 +24,22 @@
   /* Body */
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description {
     display: flex;
+    margin-bottom: 1em;
+    border-bottom: dashed 1px #666;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText {
     flex: 3;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText p {
-    margin: .5em 1em 2em 0;
+    margin: .5em 1em 1em 0;
+    color: #ccc;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage {
     flex: 1;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage img {
     max-width: 100%;
+    border-radius: 4px;
   }
 }
 
