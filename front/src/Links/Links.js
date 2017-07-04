@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import loading from './loading.gif'
 import './Links.css';
 
 class Links extends Component {
@@ -43,7 +42,7 @@ class Links extends Component {
           </button>
           <div className="linksThumbs-body">
             {this.state.menuItem.results.map((item) => (
-              <div key={item.id} style={item.thumb ? {backgroundImage: `url(${item.thumb})`} : {backgroundImage: `url(${loading})`}} onClick={() => this.handleClickThumb(item)}/>
+              <div key={item.id} style={item.thumb ? {backgroundImage: `url(${item.thumb})`} : null} onClick={() => this.handleClickThumb(item)}/>
             ))}
           </div>
           <button className="btn linksThumbs-button--next" disabled={!this.state.menuItem.next}

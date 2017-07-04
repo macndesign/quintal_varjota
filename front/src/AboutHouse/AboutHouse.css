@@ -1,5 +1,7 @@
 .about-house {
   /*background: linear-gradient(rgb(75, 106, 180), rgba(75, 106, 180, 0.7));*/
+  background-image: url('../images/black-bg.jpg');
+  background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
   display: block;
