@@ -1,4 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Slabo+27px&subset=latin-ext');
+@font-face {
+  font-family: 'Avenir LT Std 95 Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Std 95 Black'), url('./images/AvenirLTStd-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Std 35 Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Std 35 Light'), url('./images/AvenirLTStd-Light.woff') format('woff');
+}
 
 * {
   margin: 0;
@@ -9,7 +21,7 @@
 
 html, body {
   overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Avenir LT Std 35 Light', sans-serif;
   /*background: #000 url('./images/bg-qui-1.jpg');*/
   background: #000;
   background-size: cover;
@@ -17,7 +29,7 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6, th {
-  font-family: 'Slabo 27px', serif;
+  font-family: 'Avenir LT Std 95 Black', serif;
 }
 
 select {

@@ -45,7 +45,7 @@ header {
 }
 
 .menu > li.item > a {
-  font-family: 'Slabo 27px', serif;
+  font-family: 'Avenir LT Std 35 Light', sans-serif;
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px transparent;
   overflow: hidden;

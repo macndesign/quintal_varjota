@@ -30,19 +30,19 @@ const AboutHouse = ({api, aboutHouse}) => aboutHouse.results.length > 0 && (
               </div>
             </div>
           ))}
-          <div className="aboutHouse-sliderWrapper">
-            <Slider {...settings}>
-              {aboutHouse.results[0].images_about_house.map((item) => (
-                <div key={item.id} className="image">
-                  <img src={item.image} alt={item.title} />
-                </div>
-              ))}
-            </Slider>
-          </div>
         </main>
         <aside className="HolyGrail-ads">
           <Newsletter api={api}/>
         </aside>
+      </div>
+      <div className="aboutHouse-sliderWrapper">
+        <Slider {...settings}>
+          {aboutHouse.results[0].images_about_house.map((item) => (
+            <div key={item.id} className="image">
+              <img src={item.image} alt={item.title} />
+            </div>
+          ))}
+        </Slider>
       </div>
     </div>
   </div>

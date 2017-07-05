@@ -52,7 +52,3 @@
 .about-house .aboutHouse-sliderWrapper .image img {
   max-height: 200px;
 }
-
-.about-house .slick-arrow:before {
-  color: rgb(75, 54, 33);
-}
