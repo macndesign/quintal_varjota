@@ -101,6 +101,7 @@ class App extends Component {
         </header>
         <Intro/>
         {this.state.dataAboutHouse && <AboutHouse api={this.props.api} aboutHouse={this.state.dataAboutHouse}/>}
+        {/* Our flavors */}
         {this.state.dataMenu && this.state.dataMenuItem &&
         <Links menu={this.state.dataMenu} menuItem={this.state.dataMenuItem}/>}
         {/* Reservation */}

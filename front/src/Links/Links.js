@@ -8,11 +8,27 @@ class Links extends Component {
     this.state = {
       menu: props.menu || null,
       menuItem: props.menuItem || null,
-      currItem: props.menuItem.results.length > 0 ? props.menuItem.results[0] : null
+      currItem: props.menuItem.results.length > 0 ? props.menuItem.results[0] : null,
+      imageDetailStyles: {backgroundImage: `url(${props.menuItem.results[0].image})`, opacity: 1} || null
     };
   }
   handleClickThumb = (detail) => {
-    this.setState({currItem: detail});
+    if (detail.id !== this.state.currItem.id) {
+      this.setState({ imageDetailStyles: { opacity: 0, transform: 'translateY(-40px)' } });
+      setTimeout(() => {
+          this.setState({currItem: detail});
+          let image = document.getElementById('image-detail');
+          image.onload = () => {
+            this.setState({
+              imageDetailStyles: {
+                backgroundImage: `url(${this.state.currItem.image})`,
+                opacity: 1,
+                transform: 'translateY(-20px)'
+              }
+            });
+          };
+      }, 500);
+    }
   };
   handleClickThumbArrowBtn = (url) => {
     axios.get(url).then(res => {
@@ -28,7 +44,8 @@ class Links extends Component {
         </div>}
         <div className="linksBody linksDetail">
           {this.state.currItem && <div className="linksDetail-full">
-            <div className="linksDetail-image" style={{backgroundImage: `url(${this.state.currItem.image})`}}/>
+            <img src={this.state.currItem.image} id='image-detail' style={{overflow: 'hidden', height: 0}} alt='to load'/>
+            <div className="linksDetail-image" style={this.state.imageDetailStyles}/>
             <div className="linksDetail-body">
               <h1>{this.state.currItem.title}</h1>
               <p>{this.state.currItem.description}</p>

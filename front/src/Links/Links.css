@@ -70,4 +70,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 0;
+  transition: all 0.5s;
+  transform: translateY(-20px);
 }
