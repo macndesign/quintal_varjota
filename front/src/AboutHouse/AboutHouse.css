@@ -18,30 +18,58 @@
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content {
     flex: 1;
     min-height: 80vmin;
+    margin-right: 0;
   }
   .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-ads {
     max-width: 230px;
     padding: 0 20px;
   }
   /* Body */
-  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description {
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description {
     display: flex;
-    margin-bottom: 1em;
-    border-bottom: dashed 1px #666;
+    min-height: 80vmin;
   }
-  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText {
-    flex: 3;
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionText {
+    flex: 1;
+    position: relative;
   }
-  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionText p {
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionText h2 {
+    font-family: 'Avenir LT Std 35 Light', sans-serif;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: lighter;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionText p {
     margin: .5em 1em 1em 0;
     color: #ccc;
+    line-height: 1.5em;
   }
-  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage {
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionImage {
     flex: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
-  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content > .description .descriptionImage img {
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionImage img {
     max-width: 100%;
     border-radius: 4px;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionButtonContainer {
+    position: absolute;
+    bottom: 0;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionButton {
+    font-size: 50px;
+    color: #999;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0 20px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .about-house > .HolyGrail > .HolyGrail-body > .HolyGrail-content .description .descriptionButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
   }
 }
 

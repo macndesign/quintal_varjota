@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets, filters
-from .models import MainSlider, ContactInfo, Newsletter, AboutHouse, MenuItem, Menu, RestaurantReservation
+from .models import MainSlider, ContactInfo, Newsletter, AboutHouseDescription, AboutHouse, MenuItem, Menu, RestaurantReservation
 from .serializers import (MainSliderSerializer, ContactInfoSerializer, NewsletterSerializer,
-                          AboutHouseSerializer, MenuItemSerializer, MenuSerializer, RestaurantReservationSerializer)
+                          AboutHouseDescriptionSerializer, AboutHouseSerializer, MenuItemSerializer,
+                          MenuSerializer, RestaurantReservationSerializer)
 from .filters import ContactInfoFilterSet, AboutHouseFilterSet
 from rest_framework.pagination import PageNumberPagination
 
@@ -32,6 +33,12 @@ class ContactInfoViewSet(viewsets.ModelViewSet):
 class NewsletterViewSet(viewsets.ModelViewSet):
     queryset = Newsletter.actives.all()
     serializer_class = NewsletterSerializer
+
+
+class AboutHouseDescriptionViewSet(viewsets.ModelViewSet):
+    queryset = AboutHouseDescription.actives.all()
+    serializer_class = AboutHouseDescriptionSerializer
+    pagination_class = StandardResultsSetPagination
 
 
 class AboutHouseViewSet(viewsets.ModelViewSet):

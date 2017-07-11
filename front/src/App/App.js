@@ -100,7 +100,7 @@ class App extends Component {
             handleHambMenuClick={this.handleHambMenuClick}/>
         </header>
         <Intro/>
-        {this.state.dataAboutHouse && <AboutHouse api={this.props.api} aboutHouse={this.state.dataAboutHouse}/>}
+        {this.state.dataAboutHouse && <AboutHouse aboutHouse={this.state.dataAboutHouse}/>}
         {/* Our flavors */}
         {this.state.dataMenu && this.state.dataMenuItem &&
         <Links menu={this.state.dataMenu} menuItem={this.state.dataMenuItem}/>}
