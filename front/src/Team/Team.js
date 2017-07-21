@@ -158,7 +158,7 @@ class Team extends Component {
                   {this.state.dataReservation &&
                     this.state.dataReservation.results.map((item) => (
                       <div key={item.id} className='reservation-list--items' style={{borderLeft: item.active ? 'solid 4px #5CAB7D' : 'solid 4px #000'}}>
-                        <div>{(new Date(item.time_stamped)).toUTCString()}</div>
+                        <div>{(new Date(item.time_stamped)).toLocaleDateString() + ' às ' + (new Date(item.time_stamped)).toLocaleTimeString() + ' h'}</div>
                         <div className='reservation-list--items--data'>
                           <div className='reservation-list--items--data-qty'>{item.quantity} pessoas</div>
                           <div className='reservation-list--items--data-name'>{item.name}</div>
