@@ -5,6 +5,7 @@ import 'cleave.js/dist/addons/cleave-phone.br';
 import './Team.css';
 
 class Team extends Component {
+
   constructor(props) {
     super(props);
     this.reset = {
@@ -24,32 +25,41 @@ class Team extends Component {
       dataReservation: null
     };
   }
+
   componentDidMount() {
     this.setState({
       dataReservation: this.props.reservations
     });
   }
+
   handleChangeName = (event) => {
     this.setState({name: event.target.value});
   };
+
   handleChangePhone = (event) => {
     this.setState({phone: event.target.value});
   };
+
   handleChangeEmail = (event) => {
     this.setState({email: event.target.value});
   };
+
   handleChangeQuantity = (event) => {
     this.setState({quantity: event.target.value});
   };
+
   handleChangeTimeStamped = (event) => {
     this.setState({time_stamped: event.target.value});
   };
+
   handleChangeDate = (event) => {
     this.setState({date: event.target.value});
   };
+
   handleChangeTime = (event) => {
     this.setState({time: event.target.value});
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -123,9 +133,11 @@ class Team extends Component {
       </button>
     </div>
   );
+
   handleBackToForm = () => {
     this.setState({...this.reset});
   };
+
   successArea = () => (
     <div className="reservation-successArea">
       <div>
@@ -138,6 +150,15 @@ class Team extends Component {
       </button>
     </div>
   );
+
+  formatTimeNumber = (number) => {
+    if (number < 10) {
+      return `0${number}`;
+    } else {
+      return number;
+    }
+  };
+
   render() {
     return (
       <div id="team" className="team">
@@ -158,7 +179,7 @@ class Team extends Component {
                   {this.state.dataReservation &&
                     this.state.dataReservation.results.map((item) => (
                       <div key={item.id} className='reservation-list--items' style={{borderLeft: item.active ? 'solid 4px #5CAB7D' : 'solid 4px #000'}}>
-                        <div>{(new Date(item.time_stamped)).toLocaleDateString() + ' às ' + (new Date(item.time_stamped)).toLocaleTimeString() + ' h'}</div>
+                        <div>{(new Date(item.time_stamped)).toLocaleDateString() + ' às ' + this.formatTimeNumber((new Date(item.time_stamped)).getUTCHours()) + ':' + this.formatTimeNumber((new Date(item.time_stamped)).getUTCMinutes())  + ' h'}</div>
                         <div className='reservation-list--items--data'>
                           <div className='reservation-list--items--data-qty'>{item.quantity} pessoas</div>
                           <div className='reservation-list--items--data-name'>{item.name}</div>
