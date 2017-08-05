@@ -141,9 +141,14 @@ class Team extends Component {
   successArea = () => (
     <div className="reservation-successArea">
       <div>
-        Você receberá um email de confirmação de sua reserva.<br/>
-        Para cancelar sua reserva, você poderá ligar para o restaurante <a href="tel:(85) 3109.3333">(85) 3109-3333</a>
-      </div><br/>
+        <strong>Obrigado pelo contato!</strong><br/><br/>
+        Ressaltamos que sua reserva só será confirmada quando você receber um e-mail da casa confirmando 
+        a mesma, caso o e-mail não seja enviado, isso significa que sua reserva não foi aprovada devido 
+        condições operacionais da casa.<br/><br/>
+        <strong>Contato:</strong><br/><br/>
+        <a href="tel:(85) 3109.3333">(85) 3109-3333</a><br/>
+        <a href="mailto:marketing@quintaldavarjota.com">marketing@quintaldavarjota.com</a>
+      </div><br/><br/>
       <button className='btn reservation-btn reservation-btn--back' onClick={this.handleBackToForm}>
         <i className="fa fa-history" aria-hidden="true"/>&nbsp;
         Voltar
@@ -173,7 +178,7 @@ class Team extends Component {
                   {this.state.success && this.successArea()}
                 </form>
               </div>
-              <div className='reservation-list'>
+              {/*<div className='reservation-list'>
                 <h2>Lista</h2>
                 <div className='reservation-list--item'>
                   {this.state.dataReservation &&
@@ -192,7 +197,7 @@ class Team extends Component {
                   <div className="reservation-list--legend-confirmed">Confirmado</div>
                   <div className="reservation-list--legend-confirmed" style={{marginLeft: '5px', background: '#000'}}>Não Confirmado</div>
                 </div>
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>

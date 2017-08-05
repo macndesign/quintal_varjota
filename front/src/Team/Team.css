@@ -29,6 +29,8 @@
 .reservation .reservation-form {
   flex: 1;
   padding: 0 1em;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .reservation .reservation-form h2, .reservation .reservation-list h2 {
