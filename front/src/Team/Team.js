@@ -22,7 +22,8 @@ class Team extends Component {
     };
     this.state = {
       ...this.reset,
-      dataReservation: null
+      dataReservation: null,
+      loading: false
     };
   }
 
@@ -62,6 +63,7 @@ class Team extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({loading: true});
     const data = {
       name: this.state.name,
       phone: this.state.phone,
@@ -72,10 +74,21 @@ class Team extends Component {
     axios.post(this.props.api['reservation'], data)
       .then(res => {
         axios.get(this.props.api['reservation']).then(res2 => {
-          this.setState({dataReservation: res2.data, data: res.data, error: false, success: true});
+          this.setState({
+            dataReservation: res2.data, 
+            data: res.data, 
+            error: false, 
+            success: true,
+            loading: false
+          });
         });
       }).catch((err) => {
-        this.setState({data: err.response.data, error: true, success: false});
+        this.setState({
+          data: err.response.data, 
+          error: true, 
+          success: false,
+          loading: false
+        });
       });
   };
 
@@ -127,7 +140,7 @@ class Team extends Component {
         <div>{item}</div>
       ))}
       </div>
-      <button className='btn reservation-btn' type='submit'>
+      <button className='btn reservation-btn' type='submit' disabled={this.state.loading}>
         <i className="fa fa-paper-plane" aria-hidden="true"/>&nbsp;
         Reservar
       </button>

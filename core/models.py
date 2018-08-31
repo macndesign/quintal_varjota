@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
+from django.core.mail import send_mail
 
 
 class ActiveManager(models.Manager):
@@ -325,6 +328,32 @@ class RestaurantReservation(TimeStampedModel):
                                                      self.time_stamped.day, self.time_stamped.month,
                                                      self.time_stamped.year, self.time_stamped.hour,
                                                      self.time_stamped.minute)
+
+
+@receiver(post_save, sender=RestaurantReservation)
+def reservation_creation(sender, instance, created, **kwargs):
+    if created:
+        send_mail(
+            _('Reserva para: {}'.format(instance.name)),
+            _('Nome: {}\n'
+              'Telefone: {}\n'
+              'Email: {}\n'
+              'Quando: {}/{}/{} às {}:{}h\n'
+              'Quantidade de lugares: {}'.format(
+                instance.name,
+                instance.phone,
+                instance.email,
+                instance.time_stamped.day,
+                instance.time_stamped.month,
+                instance.time_stamped.year,
+                instance.time_stamped.hour,
+                instance.time_stamped.minute,
+                instance.quantity
+            )),
+            'from@example.com',
+            ['to@example.com'],
+            fail_silently=False,
+        )
 
 
 class RestaurantTable(TimeStampedModel):
